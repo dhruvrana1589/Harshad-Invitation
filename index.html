@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="You are cordially invited to the wedding of Harshad & Priya. Join us for a celebration of love — Mehendi, Haldi, Sangeet, Wedding Ceremony & Reception.">
+  <meta property="og:title" content="Harshad & Priya — Wedding Invitation">
+  <meta property="og:description" content="Join us for a celebration of love. Save the date!">
+  <meta property="og:image" content="images/hero-bg.png">
+  <meta property="og:type" content="website">
+  <title>Harshad & Priya — Wedding Invitation</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ========== NAVIGATION ========== -->
+  <nav class="navbar" id="navbar">
+    <div class="section-container">
+      <a href="#hero" class="nav-logo">H & P</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#couple">Our Story</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#invitation">Invitation</a></li>
+        <li><a href="#schedule">Events</a></li>
+        <li><a href="#rsvp">RSVP</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ========== SECTION 1: HERO ========== -->
+  <section class="hero" id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-particles" id="heroParticles"></div>
+    <div class="hero-content">
+      <p class="hero-pre-text">Together with their families</p>
+      <h1 class="hero-names">
+        Harshad
+        <span class="hero-ampersand">&</span>
+        Priya
+      </h1>
+      <p class="hero-date">July 27, 2026</p>
+      <p class="hero-tagline">"Two souls, one heart, forever entwined."</p>
+
+      <!-- Countdown -->
+      <div class="countdown" id="countdown">
+        <div class="countdown-item">
+          <span class="countdown-number" id="days">00</span>
+          <span class="countdown-label">Days</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-number" id="hours">00</span>
+          <span class="countdown-label">Hours</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-number" id="minutes">00</span>
+          <span class="countdown-label">Minutes</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-number" id="seconds">00</span>
+          <span class="countdown-label">Seconds</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-indicator">
+      <span>Scroll Down</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
+
+  <!-- ========== SECTION 2: OUR STORY ========== -->
+  <section class="couple-section" id="couple">
+    <div class="section-container">
+      <h2 class="section-title reveal">Our Story</h2>
+      <p class="section-subtitle reveal">A love written in the stars</p>
+      <div class="divider reveal"></div>
+
+      <div class="couple-content">
+        <div class="couple-image-wrapper reveal-left">
+          <div class="couple-image-frame">
+            <img src="images/couple.png" alt="Harshad and Priya together" loading="lazy">
+          </div>
+          <div class="couple-image-ornament"></div>
+        </div>
+
+        <div class="couple-text reveal-right">
+          <h2>Harshad & Priya</h2>
+          <p>
+            Some love stories are written in the stars, and ours is no different. 
+            From a chance meeting to stolen glances, from endless conversations 
+            to a love that only grew stronger with every passing day — our journey 
+            has been nothing short of magical.
+          </p>
+          <p>
+            Now, as we begin the most beautiful chapter of our lives, we invite 
+            you to be a part of our celebration. Your presence would mean the 
+            world to us as we take our vows and promise each other forever.
+          </p>
+
+          <div class="couple-names-display">
+            <div class="couple-name-card">
+              <h3>Harshad</h3>
+              <span>The Groom</span>
+            </div>
+            <span class="couple-ampersand">&</span>
+            <div class="couple-name-card">
+              <h3>Priya</h3>
+              <span>The Bride</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SECTION 3: GALLERY ========== -->
+  <section class="gallery-section" id="gallery">
+    <div class="section-container">
+      <h2 class="section-title reveal">Our Moments</h2>
+      <p class="section-subtitle reveal">Captured in time, cherished forever</p>
+      <div class="divider reveal"></div>
+
+      <div class="gallery-grid">
+        <div class="gallery-item reveal-scale" data-index="0">
+          <img src="images/gallery-1.png" alt="Pre-wedding photo 1" loading="lazy">
+          <div class="gallery-icon">⤢</div>
+        </div>
+        <div class="gallery-item reveal-scale" data-index="1">
+          <img src="images/gallery-2.png" alt="Pre-wedding photo 2" loading="lazy">
+          <div class="gallery-icon">⤢</div>
+        </div>
+        <div class="gallery-item reveal-scale" data-index="2">
+          <img src="images/gallery-3.png" alt="Pre-wedding photo 3" loading="lazy">
+          <div class="gallery-icon">⤢</div>
+        </div>
+        <div class="gallery-item reveal-scale" data-index="3">
+          <img src="images/gallery-4.png" alt="Pre-wedding photo 4" loading="lazy">
+          <div class="gallery-icon">⤢</div>
+        </div>
+        <div class="gallery-item reveal-scale" data-index="4">
+          <img src="images/gallery-5.png" alt="Pre-wedding photo 5" loading="lazy">
+          <div class="gallery-icon">⤢</div>
+        </div>
+        <div class="gallery-item reveal-scale" data-index="5">
+          <img src="images/gallery-6.png" alt="Pre-wedding photo 6" loading="lazy">
+          <div class="gallery-icon">⤢</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close lightbox">✕</button>
+    <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous image">‹</button>
+    <img src="" alt="Gallery full view" id="lightboxImg">
+    <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next image">›</button>
+  </div>
+
+  <!-- ========== SECTION 4: INVITATION ========== -->
+  <section class="invitation-section" id="invitation">
+    <div class="invitation-card reveal-scale">
+      <div class="invitation-ornament-top">❧ ✦ ❧</div>
+
+      <p class="invitation-header">Wedding Invitation</p>
+
+      <p class="invitation-parents">
+        Mr. & Mrs. [Groom's Parents Name]<br>
+        &<br>
+        Mr. & Mrs. [Bride's Parents Name]
+      </p>
+
+      <div class="divider"></div>
+
+      <p class="invitation-request">
+        Cordially invite you to celebrate the union of their beloved children
+      </p>
+
+      <h2 class="invitation-names">
+        Harshad
+        <span class="inv-ampersand">&</span>
+        Priya
+      </h2>
+
+      <div class="divider"></div>
+
+      <p class="invitation-date-line">
+        Monday, July 27th, 2026
+      </p>
+
+      <div class="invitation-venue">
+        <strong>The Grand Palace</strong>
+        123 Royal Avenue, City Name<br>
+        State, India — 400001
+      </div>
+
+      <div class="divider"></div>
+      <div class="invitation-ornament-bottom">❧ ✦ ❧</div>
+    </div>
+  </section>
+
+  <!-- ========== SECTION 5: SCHEDULE & DRESS CODE ========== -->
+  <section class="schedule-section" id="schedule">
+    <div class="section-container">
+      <h2 class="section-title reveal">Wedding Celebrations</h2>
+      <p class="section-subtitle reveal">Five days of love & festivities</p>
+      <div class="divider reveal"></div>
+
+      <div class="timeline">
+        <!-- Event 1: Mehendi -->
+        <div class="timeline-event reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="event-icon">🌿</div>
+            <h3 class="event-name">Mehendi</h3>
+            <p class="event-datetime">Saturday, July 25th, 2026 • 4:00 PM onwards</p>
+            <p class="event-venue">The Grand Palace — Garden Lawn</p>
+            <div class="dress-code">
+              <p class="dress-code-label">Dress Code</p>
+              <p class="dress-code-text">Traditional & Colorful Ethnic Wear — Think vibrant greens, oranges, and pinks!</p>
+              <div class="dress-code-colors">
+                <span class="color-swatch" style="background: #2D8B46;" title="Green"></span>
+                <span class="color-swatch" style="background: #E87D38;" title="Orange"></span>
+                <span class="color-swatch" style="background: #D4507A;" title="Pink"></span>
+                <span class="color-swatch" style="background: #F2C94C;" title="Yellow"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Event 2: Haldi -->
+        <div class="timeline-event reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="event-icon">☀️</div>
+            <h3 class="event-name">Haldi</h3>
+            <p class="event-datetime">Sunday, July 26th, 2026 • 10:00 AM onwards</p>
+            <p class="event-venue">The Grand Palace — Poolside Terrace</p>
+            <div class="dress-code">
+              <p class="dress-code-label">Dress Code</p>
+              <p class="dress-code-text">Yellow & White attire only — Keep it light, fun, and ready to get colorful!</p>
+              <div class="dress-code-colors">
+                <span class="color-swatch" style="background: #F2C94C;" title="Yellow"></span>
+                <span class="color-swatch" style="background: #FFFDE7;" title="Light Yellow"></span>
+                <span class="color-swatch" style="background: #FFFFFF; border-color: #ccc;" title="White"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Event 3: Sangeet -->
+        <div class="timeline-event reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="event-icon">🎶</div>
+            <h3 class="event-name">Sangeet</h3>
+            <p class="event-datetime">Sunday, July 26th, 2026 • 7:00 PM onwards</p>
+            <p class="event-venue">The Grand Palace — Grand Ballroom</p>
+            <div class="dress-code">
+              <p class="dress-code-label">Dress Code</p>
+              <p class="dress-code-text">Indo-Western & Glamorous — Shine bright and dance the night away!</p>
+              <div class="dress-code-colors">
+                <span class="color-swatch" style="background: #C9A84C;" title="Gold"></span>
+                <span class="color-swatch" style="background: #6B0F1A;" title="Burgundy"></span>
+                <span class="color-swatch" style="background: #1B3A5C;" title="Navy"></span>
+                <span class="color-swatch" style="background: #7B2D8E;" title="Purple"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Event 4: Wedding Ceremony -->
+        <div class="timeline-event reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="event-icon">💍</div>
+            <h3 class="event-name">Wedding Ceremony</h3>
+            <p class="event-datetime">Monday, July 27th, 2026 • 9:00 AM onwards</p>
+            <p class="event-venue">The Grand Palace — Royal Mandap</p>
+            <div class="dress-code">
+              <p class="dress-code-label">Dress Code</p>
+              <p class="dress-code-text">Formal Traditional Wear — Sarees, lehengas, sherwanis, kurtas in rich & elegant colors.</p>
+              <div class="dress-code-colors">
+                <span class="color-swatch" style="background: #D4292E;" title="Red"></span>
+                <span class="color-swatch" style="background: #C9A84C;" title="Gold"></span>
+                <span class="color-swatch" style="background: #8B1E2B;" title="Maroon"></span>
+                <span class="color-swatch" style="background: #E8723A;" title="Orange"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Event 5: Reception -->
+        <div class="timeline-event reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="event-icon">🥂</div>
+            <h3 class="event-name">Reception</h3>
+            <p class="event-datetime">Monday, July 27th, 2026 • 7:00 PM onwards</p>
+            <p class="event-venue">The Grand Palace — Crystal Hall</p>
+            <div class="dress-code">
+              <p class="dress-code-label">Dress Code</p>
+              <p class="dress-code-text">Black Tie / Evening Formal — Gowns, tuxedos, or elegant evening wear.</p>
+              <div class="dress-code-colors">
+                <span class="color-swatch" style="background: #1A1A1A;" title="Black"></span>
+                <span class="color-swatch" style="background: #C9A84C;" title="Gold"></span>
+                <span class="color-swatch" style="background: #4A0A12;" title="Deep Burgundy"></span>
+                <span class="color-swatch" style="background: #C0C0C0;" title="Silver"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SECTION 6: RSVP ========== -->
+  <section class="rsvp-section" id="rsvp">
+    <div class="section-container">
+      <h2 class="section-title reveal">RSVP</h2>
+      <p class="section-subtitle reveal">We'd love to have you there!</p>
+      <div class="divider reveal"></div>
+
+      <div class="rsvp-form-wrapper reveal">
+        <form id="rsvpForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="guestName">Your Name</label>
+              <input type="text" id="guestName" name="guestName" placeholder="Full name" required>
+            </div>
+            <div class="form-group">
+              <label for="guestPhone">Phone / Email</label>
+              <input type="text" id="guestPhone" name="guestPhone" placeholder="Phone or email" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="numGuests">Number of Guests</label>
+              <select id="numGuests" name="numGuests" required>
+                <option value="" disabled selected>Select</option>
+                <option value="1">1 Guest</option>
+                <option value="2">2 Guests</option>
+                <option value="3">3 Guests</option>
+                <option value="4">4 Guests</option>
+                <option value="5">5+ Guests</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="dietary">Dietary Preference</label>
+              <select id="dietary" name="dietary">
+                <option value="" disabled selected>Select (optional)</option>
+                <option value="veg">Vegetarian</option>
+                <option value="nonveg">Non-Vegetarian</option>
+                <option value="vegan">Vegan</option>
+                <option value="jain">Jain</option>
+                <option value="none">No Preference</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Events You'll Attend</label>
+            <div class="checkbox-group">
+              <label class="checkbox-item">
+                <input type="checkbox" name="events" value="mehendi">
+                <span>🌿 Mehendi</span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" name="events" value="haldi">
+                <span>☀️ Haldi</span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" name="events" value="sangeet">
+                <span>🎶 Sangeet</span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" name="events" value="wedding">
+                <span>💍 Wedding</span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" name="events" value="reception">
+                <span>🥂 Reception</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message for the Couple</label>
+            <textarea id="message" name="message" placeholder="Share your blessings and wishes..." rows="4"></textarea>
+          </div>
+
+          <button type="submit" class="btn-submit" id="submitBtn">
+            Confirm Attendance
+          </button>
+        </form>
+
+        <div class="rsvp-success" id="rsvpSuccess">
+          <div class="success-icon">💌</div>
+          <h3>Thank You!</h3>
+          <p>Your RSVP has been received. We can't wait to celebrate with you!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SECTION 7: FOOTER ========== -->
+  <footer class="footer" id="footer">
+    <div class="section-container">
+      <p class="footer-names">Harshad & Priya</p>
+      <p class="footer-date">July 27, 2026 • City Name, India</p>
+
+      <div class="footer-links">
+        <a href="#" aria-label="Instagram" title="Instagram">📷</a>
+        <a href="#" aria-label="Share" title="Share">🔗</a>
+        <a href="#" aria-label="Location" title="Venue Map">📍</a>
+      </div>
+
+      <p class="footer-credit">Made with <span>❤️</span> for Harshad & Priya</p>
+    </div>
+  </footer>
+
+  <!-- Confetti Canvas -->
+  <canvas class="confetti-canvas" id="confettiCanvas"></canvas>
+
+  <script src="script.js"></script>
+</body>
+</html>
