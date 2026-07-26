@@ -6,9 +6,9 @@
 /* ---------- CSS Custom Properties ---------- */
 :root {
   /* Core Colors */
-  --burgundy: #6B0F1A;
-  --burgundy-deep: #4A0A12;
-  --burgundy-light: #8B1E2B;
+  --burgundy: #0D3B2E;
+  --burgundy-deep: #082720;
+  --burgundy-light: #1D9E75;
   --gold: #C9A84C;
   --gold-light: #E8D48B;
   --gold-dark: #A88B3A;
@@ -16,8 +16,8 @@
   --cream-dark: #F5EDE0;
   --charcoal: #1A1A1A;
   --charcoal-light: #2D2D2D;
-  --rose: #D4A5A5;
-  --rose-light: #E8C4C4;
+  --rose: #7FC9A8;
+  --rose-light: #B7E4CD;
   --white: #FFFFFF;
 
   /* Glassmorphism */
@@ -201,6 +201,100 @@ a {
 }
 
 /* ============================================================
+   PRELOADER
+   ============================================================ */
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 20000;
+  background: var(--charcoal);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.preloader.loaded {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.preloader-monogram {
+  font-family: var(--font-cursive);
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  color: var(--gold);
+  letter-spacing: 0.05em;
+  animation: pulse-glow 2s ease-in-out infinite;
+  filter: drop-shadow(0 4px 20px rgba(201, 168, 76, 0.3));
+}
+
+.preloader-monogram span {
+  color: var(--rose);
+  margin: 0 0.15em;
+}
+
+.preloader-bar {
+  width: 160px;
+  height: 2px;
+  background: rgba(201, 168, 76, 0.15);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.preloader-bar span {
+  display: block;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  animation: preloader-sweep 1.2s ease-in-out infinite;
+}
+
+@keyframes preloader-sweep {
+  0% { transform: translateX(-120%); }
+  100% { transform: translateX(350%); }
+}
+
+/* ============================================================
+   SCROLL PROGRESS BAR
+   ============================================================ */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--gold-dark), var(--gold-light), var(--gold-dark));
+  z-index: 10001;
+  transition: width 0.1s linear;
+}
+
+/* ============================================================
+   CURSOR GLOW (desktop only)
+   ============================================================ */
+.cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201, 168, 76, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 5;
+  transform: translate(-50%, -50%);
+  will-change: transform;
+}
+
+@media (hover: none), (pointer: coarse) {
+  .cursor-glow {
+    display: none;
+  }
+}
+
+/* ============================================================
    NAVIGATION
    ============================================================ */
 .navbar {
@@ -320,6 +414,15 @@ a {
   filter: brightness(0.35);
   transform: scale(1.05);
   transition: transform 8s ease;
+}
+
+@supports (background-image: image-set(url('a.webp') type('image/webp'))) {
+  .hero-bg {
+    background-image: image-set(
+      url('images/hero-bg.webp') type('image/webp'),
+      url('images/hero-bg.png') type('image/png')
+    );
+  }
 }
 
 .hero:hover .hero-bg {
@@ -618,6 +721,7 @@ a {
   grid-auto-rows: 280px;
   gap: 1rem;
   margin-top: 2rem;
+  perspective: 1000px;
 }
 
 .gallery-item {
@@ -775,6 +879,22 @@ a {
 
 .lightbox-prev { left: 2rem; }
 .lightbox-next { right: 2rem; }
+
+.lightbox-counter {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  color: var(--gold-light);
+}
+
+.gallery-item {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
 
 /* ============================================================
    SECTION 4: THE INVITATION
@@ -1325,6 +1445,18 @@ a {
   color: var(--charcoal);
   border-color: var(--gold);
   transform: translateY(-3px);
+}
+
+.footer-link-disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+
+.footer-link-disabled:hover {
+  background: none;
+  color: var(--gold);
+  border-color: var(--glass-border);
+  transform: none;
 }
 
 .footer-credit {

@@ -10,6 +10,42 @@ document.addEventListener('DOMContentLoaded', () => {
   // Change this date to your actual wedding date
   const WEDDING_DATE = new Date('2026-07-27T09:00:00+05:30');
 
+  // ========== PRELOADER ==========
+  const preloader = document.getElementById('preloader');
+  window.addEventListener('load', () => {
+    setTimeout(() => preloader.classList.add('loaded'), 400);
+  });
+
+  // ========== SCROLL PROGRESS BAR ==========
+  const scrollProgress = document.getElementById('scrollProgress');
+  function updateScrollProgress() {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    scrollProgress.style.width = `${pct}%`;
+  }
+  window.addEventListener('scroll', updateScrollProgress);
+  updateScrollProgress();
+
+  // ========== CURSOR GLOW (desktop only) ==========
+  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    const cursorGlow = document.createElement('div');
+    cursorGlow.className = 'cursor-glow';
+    document.body.appendChild(cursorGlow);
+    let glowX = 0, glowY = 0, targetX = 0, targetY = 0;
+    window.addEventListener('mousemove', (e) => {
+      targetX = e.clientX;
+      targetY = e.clientY;
+    });
+    function animateGlow() {
+      glowX += (targetX - glowX) * 0.1;
+      glowY += (targetY - glowY) * 0.1;
+      cursorGlow.style.transform = `translate(${glowX}px, ${glowY}px) translate(-50%, -50%)`;
+      requestAnimationFrame(animateGlow);
+    }
+    animateGlow();
+  }
+
   // ========== NAVBAR SCROLL EFFECT ==========
   const navbar = document.getElementById('navbar');
   const navToggle = document.getElementById('navToggle');
@@ -125,21 +161,29 @@ document.addEventListener('DOMContentLoaded', () => {
   const lightboxNext = document.getElementById('lightboxNext');
 
   const galleryImages = [
-    'images/gallery-1.png',
-    'images/gallery-2.png',
-    'images/gallery-3.png',
-    'images/gallery-4.png',
-    'images/gallery-5.png',
-    'images/gallery-6.png'
+    'images/gallery-1.webp',
+    'images/gallery-2.webp',
+    'images/gallery-3.webp',
+    'images/gallery-4.webp',
+    'images/gallery-5.webp',
+    'images/gallery-6.webp'
   ];
 
   let currentImageIndex = 0;
+  const lightboxCounter = document.getElementById('lightboxCounter');
+
+  function updateLightboxCounter() {
+    if (lightboxCounter) {
+      lightboxCounter.textContent = `${currentImageIndex + 1} / ${galleryImages.length}`;
+    }
+  }
 
   function openLightbox(index) {
     currentImageIndex = index;
     lightboxImg.src = galleryImages[index];
     lightbox.classList.add('active');
     document.body.style.overflow = 'hidden';
+    updateLightboxCounter();
   }
 
   function closeLightbox() {
@@ -150,11 +194,13 @@ document.addEventListener('DOMContentLoaded', () => {
   function showPrevImage() {
     currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
     lightboxImg.src = galleryImages[currentImageIndex];
+    updateLightboxCounter();
   }
 
   function showNextImage() {
     currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
     lightboxImg.src = galleryImages[currentImageIndex];
+    updateLightboxCounter();
   }
 
   galleryItems.forEach(item => {
@@ -182,10 +228,37 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'ArrowRight') showNextImage();
   });
 
+  // Touch swipe navigation
+  let touchStartX = 0;
+  lightbox.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+
+  lightbox.addEventListener('touchend', (e) => {
+    const touchEndX = e.changedTouches[0].screenX;
+    const delta = touchEndX - touchStartX;
+    if (Math.abs(delta) > 50) {
+      delta > 0 ? showPrevImage() : showNextImage();
+    }
+  }, { passive: true });
+
   // ========== RSVP FORM ==========
   const rsvpForm = document.getElementById('rsvpForm');
   const rsvpSuccess = document.getElementById('rsvpSuccess');
   const submitBtn = document.getElementById('submitBtn');
+
+  // Magnetic hover on submit button
+  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    submitBtn.addEventListener('mousemove', (e) => {
+      const rect = submitBtn.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      submitBtn.style.transform = `translate(${x * 0.15}px, ${y * 0.3}px)`;
+    });
+    submitBtn.addEventListener('mouseleave', () => {
+      submitBtn.style.transform = '';
+    });
+  }
 
   rsvpForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -335,6 +408,40 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // ========== HERO MOUSE PARALLAX ==========
+  const heroContent = document.querySelector('.hero-content');
+  const heroSection = document.querySelector('.hero');
+  if (heroContent && heroSection && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    heroSection.addEventListener('mousemove', (e) => {
+      const { innerWidth, innerHeight } = window;
+      const x = (e.clientX / innerWidth - 0.5) * 2;
+      const y = (e.clientY / innerHeight - 0.5) * 2;
+      heroContent.style.transform = `translate(${x * -12}px, ${y * -12}px)`;
+      if (particlesContainer) {
+        particlesContainer.style.transform = `translate(${x * 20}px, ${y * 20}px)`;
+      }
+    });
+    heroSection.addEventListener('mouseleave', () => {
+      heroContent.style.transform = 'translate(0, 0)';
+      if (particlesContainer) particlesContainer.style.transform = 'translate(0, 0)';
+    });
+  }
+
+  // ========== GALLERY TILT ==========
+  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    galleryItems.forEach(item => {
+      item.addEventListener('mousemove', (e) => {
+        const rect = item.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        item.style.transform = `translateY(-4px) rotateX(${y * -8}deg) rotateY(${x * 8}deg)`;
+      });
+      item.addEventListener('mouseleave', () => {
+        item.style.transform = '';
+      });
+    });
+  }
+
   // ========== INVITATION CARD HOVER GLOW ==========
   const invitationCard = document.querySelector('.invitation-card');
   if (invitationCard) {
@@ -356,7 +463,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ========== PRELOAD CRITICAL IMAGES ==========
-  const criticalImages = ['images/hero-bg.png', 'images/couple.png'];
+  const criticalImages = ['images/hero-bg.webp', 'images/couple.webp'];
   criticalImages.forEach(src => {
     const img = new Image();
     img.src = src;
